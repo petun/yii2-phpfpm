@@ -1,7 +1,8 @@
 FROM php:7-fpm
 
 # Install modules
-RUN apt-get update && apt-get install -y \
+RUN apt-get update -yqq
+RUN apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
@@ -38,7 +39,6 @@ RUN curl -sS https://getcomposer.org/installer | php
 
   # Install all project dependencies
 RUN php composer.phar global require "fxp/composer-asset-plugin:^1.4.2"
-RUN php composer.phar install
 
 RUN usermod -u 1000 www-data
 
