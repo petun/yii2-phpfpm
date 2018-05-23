@@ -1,4 +1,4 @@
-FROM php:7-fpm
+FROM php:7.2-fpm
 
 # Install modules
 RUN apt-get update -yqq
